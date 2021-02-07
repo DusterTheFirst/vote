@@ -4,15 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Voting Form</title>
+        <title>Voting Form For {{username}}</title>
         <style>
-            pre {
-                white-space: pre-line;
-                word-wrap: break-word;
-                background: whitesmoke;
-                padding: 15px 20px;
-            }
-
             body,
             html,
             iframe {
@@ -29,21 +22,9 @@
         </style>
     </head>
     <body>
-        <iframe id="form"
+        <iframe
             src="{{form_embed_url}}&entry.1703818484={{email}}&entry.2024968475={{token}}&entry.1617746241={{username}}%23{{discriminator}}">
             Loading…
         </iframe>
     </body>
-    <script>
-        window.onload = () => {
-            const form = document.getElementById("form");
-
-            form.onload = () => {
-                setInterval(() => {
-                    form.style.width = form.contentWindow.document.body.scrollWidth + "px";
-                    form.style.height = form.contentWindow.document.body.scrollHeight + "px";
-                }, 1000);
-            }
-        }
-    </script>
 </html>
