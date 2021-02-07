@@ -1,0 +1,52 @@
+[package]
+name = "polling"
+version = "0.1.0"
+authors = ["Zachary Kohnen <14093962+DusterTheFirst@users.noreply.github.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["console_error_panic_hook"]
+
+
+[dependencies]
+cfg-if = "1.0"
+wasm-bindgen = { version = "0.2", features = ["serde-serialize"] }
+wasm-bindgen-futures = "0.4"
+twilight-model = "0.3"
+oauth2 = { git = "https://github.com/dusterthefirst/oauth2-rs", branch = "wasm32-support" } # { git = "https://github.com/ramosbugs/oauth2-rs", branch = "main" }
+web-sys = { version = "0.3", features = [
+    "Headers",
+    "Request",
+    "RequestInit",
+    "RequestMode",
+    "Response",
+    "ResponseInit",
+] }
+url = "2.2"
+askama = "0.10"
+reqwest = { version = "0.11.0", features = ["json"] }
+jwt = "0.12"
+hmac = "0.9"
+sha2 = "0.9"
+base64 = "0.13"
+
+# The `console_error_panic_hook` crate provides better debugging of panics by
+# logging them with `console.error`. This is great for development, but requires
+# all the `std::fmt` and `std::panicking` infrastructure, so isn"t great for
+# code size when deploying.
+console_error_panic_hook = { version = "0.1.6", optional = true }
+
+# `wee_alloc` is a tiny allocator for wasm that is only ~1K in code size
+# compared to the default allocator"s ~10K. It is slower than the default
+# allocator, however.
+wee_alloc = { version = "0.4.5", optional = true }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+
+[profile.release]
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"
