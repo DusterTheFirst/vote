@@ -2,10 +2,10 @@ name = "polling"
 type = "rust"
 account_id = "90d15a1372995fa5ca0b476c1addce38"
 zone_id = "c3c0473cff588d953e94751745d61334"
-route = "dusterthefirst.com/*"
+route = "vote.dusterthefirst.com/*"
 
 [vars]
 client_id = "794396280305745960"
-# redirect_url = "https://vote.dusterthefirst.com/oauth/authorize"
-redirect_url = "http://localhost:8787/oauth/authorize"
+redirect_url = "https://vote.dusterthefirst.com/oauth/authorize"
+# redirect_url = "http://localhost:8787/oauth/authorize"
 guild_id = "708811110928744578"
